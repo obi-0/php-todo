@@ -13,7 +13,7 @@ pipeline {
 
       stage('Checkout SCM') {
           steps {
-              git branch: 'main', url: 'https://github.com/Anefu/php-todo.git'
+              git branch: 'main', url: 'https://github.com/obi-0/php-todo.git'
           }
       }
       
