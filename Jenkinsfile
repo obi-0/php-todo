@@ -19,7 +19,7 @@ pipeline {
       
       stage('Build image') {
           steps {
-              sh "docker build -t anefu/php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
+              sh "docker build -t obi007/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
           }
       }
        stage('Docker Push') {
@@ -27,7 +27,7 @@ pipeline {
            steps {
                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                   sh "docker push anefu/php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                   sh "docker push obi007/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
                }
            }
         }
